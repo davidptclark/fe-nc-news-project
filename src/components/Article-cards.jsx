@@ -5,7 +5,7 @@ export default function ArticleCards({
     <article className="article-cards">
       <h3>{title}</h3>
       <h4>By: {author} </h4>
-      <p>{body}</p>
+      <p>{body.slice(0, 50)}...</p>
       <ul>
         <li>Number of comments: {comment_count} </li>
         <li>Posted: {created_at} </li>

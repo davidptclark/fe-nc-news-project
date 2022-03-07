@@ -10,10 +10,10 @@ export default function ArticleList() {
   }, []);
 
   return (
-    <section className="article-list">
+    <main className="article-list">
       {articleList.map((article) => {
         return <ArticleCards key={article.article_id} article={article} />;
       })}
-    </section>
+    </main>
   );
 }
