@@ -22,11 +22,11 @@ export default function ArticleCards({
           <h3>{title}</h3>
           <h4>By: {author} </h4>
           <p>{body.slice(0, 50)}...</p>
+          <section className="votes">Votes: {votes}</section>
           <ul className="card-info">
             <li>Comments: {comment_count} </li>
             <li>Posted: {created_at.slice(0, -14)} </li>
             <li>Topic: {topic}</li>
-            <li>Votes: {votes}</li>
           </ul>
         </Card>
       </CardActionArea>

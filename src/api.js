@@ -10,10 +10,16 @@ export const getArticles = (topic) => {
     .then(({ data: articles }) => articles);
 };
 
-export const getArticleById = (Id) => {
-  return marketApi.get(`/articles/${Id}`).then(({ data: article }) => article);
+export const getArticleById = (article_id) => {
+  return marketApi
+    .get(`/articles/${article_id}`)
+    .then(({ data: article }) => article);
 };
 
 export const getTopics = () => {
   return marketApi.get(`/topics`).then(({ data }) => data);
+};
+
+export const patchVotes = (article_id, voteChange) => {
+  return marketApi.patch(`/articles/${article_id}`, { inc_votes: voteChange });
 };

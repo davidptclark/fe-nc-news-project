@@ -23,6 +23,7 @@
 .card-info {
   display: flex;
   list-style-type: none;
+  justify-content: space-evenly;
 }
 
 .topic-links {
