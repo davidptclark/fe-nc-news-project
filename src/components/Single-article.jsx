@@ -17,7 +17,7 @@ export default function SingleArticle() {
   if (isLoading) return <p>loading...</p>;
   return (
     <Card className="single-article-card" elevation={3}>
-      <h3>article.title</h3>
+      <h3>{article.title}</h3>
       {/* Adding MUI Card styling */}
       <h4>By: {article.author} </h4>
       <p>{article.body}</p>
