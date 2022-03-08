@@ -33,10 +33,11 @@ li {
   flex: auto;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 912px) {
   .article-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit);
+    justify-content: center;
+    grid-template-columns: minmax(20em, 30em);
     grid-gap: 1em;
     padding: 1em;
   }
