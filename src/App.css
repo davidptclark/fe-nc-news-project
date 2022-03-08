@@ -11,6 +11,7 @@
 
 .article-cards,
 .single-article-card {
+  font-family: Quicksand;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
