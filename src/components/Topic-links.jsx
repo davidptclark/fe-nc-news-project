@@ -16,6 +16,10 @@ export default function TopicLinks() {
   //TODO: Style Links
   return (
     <nav>
+      <Link key="all" className="topic-links" to="/">
+        {/* Alternative to heading link - clearer expression to user */}
+        all
+      </Link>
       {topics.map(({ slug: topic }, index) => {
         return (
           <Link key={index} className="topic-links" to={`/${topic}`}>
