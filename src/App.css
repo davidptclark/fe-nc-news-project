@@ -9,10 +9,13 @@
   padding: 1em;
 }
 
-.article-cards {
+.article-cards,
+.single-article-card {
+  font-family: Quicksand;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin-top: 1em;
   padding-left: 1em;
   padding-right: 1em;
 }
@@ -30,10 +33,11 @@ li {
   flex: auto;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 912px) {
   .article-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit);
+    justify-content: center;
+    grid-template-columns: minmax(20em, 30em);
     grid-gap: 1em;
     padding: 1em;
   }

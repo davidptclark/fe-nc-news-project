@@ -10,8 +10,10 @@ export default function ArticleList() {
 
   useEffect(() => {
     setIsLoading(true);
-    api.getArticles(topic).then((articles) => setArticleList(articles));
-    setIsLoading(false);
+    api.getArticles(topic).then((articles) => {
+      setArticleList(articles);
+      setIsLoading(false);
+    });
   }, [topic]);
 
   if (isLoading) return <p>loading...</p>;

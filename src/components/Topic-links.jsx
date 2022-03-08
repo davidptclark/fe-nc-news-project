@@ -22,7 +22,7 @@ export default function TopicLinks() {
       </Link>
       {topics.map(({ slug: topic }, index) => {
         return (
-          <Link key={index} className="topic-links" to={`/${topic}`}>
+          <Link key={index} className="topic-links" to={`/topics/${topic}`}>
             {topic}
           </Link>
         );

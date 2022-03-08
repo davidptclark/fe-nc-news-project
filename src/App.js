@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Container from '@mui/material/Container'; //Center root div horizontally
-
 // Components
 import Header from './components/Header';
 import TopicLinks from './components/Topic-links';
 import ArticleList from './components/Article-list';
+import SingleArticle from './components/Single-article';
 
 function App() {
   return (
@@ -17,7 +17,8 @@ function App() {
           <TopicLinks />
           <Routes>
             <Route path="/" element={<ArticleList />} />
-            <Route path="/:topic" element={<ArticleList />} />
+            <Route path="/topics/:topic" element={<ArticleList />} />
+            <Route path="/articles/:article_id" element={<SingleArticle />} />
           </Routes>
         </Container>
       </div>
