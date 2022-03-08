@@ -10,8 +10,10 @@ export default function SingleArticle() {
 
   useEffect(() => {
     setIsLoading(true);
-    api.getArticleById(article_id).then(({ article }) => setArticle(article));
-    setIsLoading(false);
+    api.getArticleById(article_id).then(({ article }) => {
+      setArticle(article);
+      setIsLoading(false);
+    });
   }, [article_id]);
 
   if (isLoading) return <p>loading...</p>;
