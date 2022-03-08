@@ -11,7 +11,6 @@ export const getArticles = (topic) => {
 };
 
 export const getArticleById = (Id) => {
-  console.log(Id);
   return marketApi.get(`/articles/${Id}`).then(({ data: article }) => article);
 };
 
