@@ -9,10 +9,12 @@
   padding: 1em;
 }
 
-.article-cards {
+.article-cards,
+.single-article-card {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin-top: 1em;
   padding-left: 1em;
   padding-right: 1em;
 }

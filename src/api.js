@@ -10,6 +10,11 @@ export const getArticles = (topic) => {
     .then(({ data: articles }) => articles);
 };
 
+export const getArticleById = (Id) => {
+  console.log(Id);
+  return marketApi.get(`/articles/${Id}`).then(({ data: article }) => article);
+};
+
 export const getTopics = () => {
   return marketApi.get(`/topics`).then(({ data }) => data);
 };
