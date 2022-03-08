@@ -24,7 +24,7 @@ export default function ArticleCards({
           <p>{body.slice(0, 50)}...</p>
           <ul className="card-info">
             <li>Comments: {comment_count} </li>
-            <li>Posted: {created_at} </li>
+            <li>Posted: {created_at.slice(0, -14)} </li>
             <li>Topic: {topic}</li>
             <li>Votes: {votes}</li>
           </ul>

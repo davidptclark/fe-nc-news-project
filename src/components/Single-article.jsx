@@ -25,7 +25,7 @@ export default function SingleArticle() {
       <p>{article.body}</p>
       <ul className="card-info">
         <li>Comments: {article.comment_count} </li>
-        <li>Posted: {article.created_at} </li>
+        <li>Posted: {article.created_at.slice(0, -14)} </li>
         <li>Topic: {article.topic}</li>
         <li>Votes: {article.votes}</li>
       </ul>
