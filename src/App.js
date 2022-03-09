@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Container from '@mui/material/Container'; //Center root div horizontally
 // Components
 import Header from './components/Header';
-import TopicLinks from './components/Topic-links';
-import ArticleList from './components/Article-list';
-import SingleArticle from './components/Single-article';
+import TopicLinks from './components/TopicLinks';
+import ArticleList from './components/ArticleList';
+import SingleArticle from './components/SingleArticle';
 
 function App() {
   return (
