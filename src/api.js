@@ -23,3 +23,9 @@ export const getTopics = () => {
 export const patchVotes = (article_id, voteChange) => {
   return marketApi.patch(`/articles/${article_id}`, { inc_votes: voteChange });
 };
+
+export const getCommentsById = (article_id) => {
+  return marketApi
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data }) => data);
+};

@@ -10,7 +10,7 @@
 }
 
 .article-cards,
-.single-article-card {
+.single-article-paper {
   font-family: Quicksand;
   display: flex;
   flex-direction: column;
@@ -20,9 +20,17 @@
   padding-right: 1em;
 }
 
+.comment-list {
+  font-family: Quicksand;
+}
+
+.comment-details {
+  display: flex;
+  justify-items: space-around;
+}
+
 .card-info {
   display: flex;
-  list-style-type: none;
   justify-content: space-evenly;
 }
 
@@ -32,6 +40,8 @@
 
 li {
   flex: auto;
+  list-style-type: none;
+  justify-content: space-between;
 }
 
 @media (max-width: 912px) {

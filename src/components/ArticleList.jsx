@@ -1,7 +1,7 @@
 import * as api from '../api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ArticleCards from './Article-cards';
+import ArticleCards from './ArticleCards';
 
 export default function ArticleList() {
   const [articleList, setArticleList] = useState([]);
