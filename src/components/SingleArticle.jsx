@@ -8,7 +8,7 @@ import CommentsList from './CommentsList';
 
 export default function SingleArticle() {
   const [article, setArticle] = useState('');
-  const [commentsList, setCommentsList] = useState([]);
+  // const [commentsList, setCommentsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { article_id } = useParams();
 
@@ -18,11 +18,11 @@ export default function SingleArticle() {
       setArticle(article);
       setIsLoading(false);
     });
-    setIsLoading(true);
-    api.getCommentsById(article_id).then((comments) => {
-      setCommentsList(comments);
-      setIsLoading(false);
-    });
+    // setIsLoading(true);
+    // api.getCommentsById(article_id).then((comments) => {
+    //   setCommentsList(comments);
+    //   setIsLoading(false);
+    // });
   }, [article_id]);
   /* Re-renders when setVotes changes to update vote count */
 
@@ -41,7 +41,7 @@ export default function SingleArticle() {
           <li>Topic: {article.topic}</li>
         </ul>
       </Card>
-      <CommentsList commentsList={commentsList} />
+      <CommentsList /* commentsList={commentsList} */ article_id={article_id} />
     </section>
   );
 }
