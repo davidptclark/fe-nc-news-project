@@ -44,6 +44,10 @@ export default function CommentForm({ article_id, setNumOfComments }) {
           setIsProcessing(false);
         });
     }
+    setPostDetails({
+      username: 'grumpy19',
+      body: '',
+    }); /* Clears comment field after submission */
   };
 
   return (
