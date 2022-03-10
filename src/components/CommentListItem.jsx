@@ -1,20 +1,10 @@
 import Card from '@mui/material/Card';
-import Paper from '@mui/material/Paper';
 
 export default function CommentListItem({
-  author,
-  body,
-  comment_id,
-  created_at,
-  votes,
+  comment: { author, body, created_at, votes },
 }) {
   return (
-    <Card
-      key={comment_id}
-      className="single-article-paper"
-      elevation={8}
-      square={false}
-    >
+    <Card className="single-article-paper" elevation={8} square={false}>
       <h3>{author}</h3>
       <p>{body}</p>
       <ul className="comment-details">
