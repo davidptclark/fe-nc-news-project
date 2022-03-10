@@ -36,7 +36,7 @@ export default function CommentForm({ article_id, setNumOfComments }) {
           setIsProcessing(true);
           SetPostStatus('success');
           setIsProcessing(false);
-          setNumOfComments(comment_id);
+          setNumOfComments(comment_id); //Sets state that will the cause the useEffect in CommentList to re-render
         })
         .catch(() => {
           setIsProcessing(true);

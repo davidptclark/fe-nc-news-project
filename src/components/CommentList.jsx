@@ -13,7 +13,10 @@ export default function CommentList({ article_id, numOfComments }) {
     setIsLoading(true);
     api.getCommentsById(article_id).then((comments) => {
       if (isMounted) {
-        setCommentList(comments);
+        let sortedComments = comments.sort(
+          (a, b) => b.comment_id - a.comment_id
+        ); //Returns to CommentList in order which will render with new comments at the top
+        setCommentList(sortedComments);
         setIsLoading(false);
       }
     });

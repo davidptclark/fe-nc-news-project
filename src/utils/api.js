@@ -4,9 +4,11 @@ const marketApi = axios.create({
   baseURL: 'https://davidc-nc-news.herokuapp.com/api',
 });
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, sortBy, orderBy) => {
   return marketApi
-    .get(`/articles`, { params: { topic: topic } }) //using passed param directly into axios
+    .get(`/articles`, {
+      params: { topic: topic, sort_by: sortBy, order: orderBy },
+    }) //using passed param directly into axios
     .then(({ data: articles }) => articles);
 };
 
@@ -25,10 +27,9 @@ export const patchVotes = (article_id, voteChange) => {
 };
 
 export const getCommentsById = (article_id) => {
-  return marketApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
-    const sortedComments = data.sort((a, b) => b.comment_id - a.comment_id); //Returns to CommentList in order which will render with new comments at the top
-    return sortedComments;
-  });
+  return marketApi
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data }) => data);
 };
 
 export const postCommentsById = (article_id, postDetails) => {
