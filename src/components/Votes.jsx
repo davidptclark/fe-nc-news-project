@@ -1,4 +1,4 @@
-import * as api from '../api';
+import * as api from '../utils/api';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';

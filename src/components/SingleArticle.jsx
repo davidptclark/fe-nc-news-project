@@ -1,14 +1,16 @@
-import * as api from '../api';
+import * as api from '../utils/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Card from '@mui/material/Card';
-
+import CircularProgress from '@mui/material/CircularProgress';
 import Votes from './Votes';
 import CommentList from './CommentList';
+import CommentForm from './CommentForm';
 
 export default function SingleArticle() {
   const [article, setArticle] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [numOfComments, setNumOfComments] = useState(''); //Updated when POST request is successful and then triggers useEffect in CommentList
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export default function SingleArticle() {
     });
   }, [article_id]);
 
-  if (isLoading) return <p>loading...</p>;
+  if (isLoading) return <CircularProgress />;
   return (
     <section>
       <Card className="single-article-paper" elevation={24} square={false}>
@@ -34,7 +36,11 @@ export default function SingleArticle() {
           <li>Topic: {article.topic}</li>
         </ul>
       </Card>
-      <CommentList article_id={article_id} />
+      <CommentForm
+        setNumOfComments={setNumOfComments}
+        article_id={article_id}
+      />
+      <CommentList numOfComments={numOfComments} article_id={article_id} />
     </section>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import * as api from '../api';
+import * as api from '../utils/api';
 
 export default function TopicLinks() {
   const [topics, setTopics] = useState([]);
