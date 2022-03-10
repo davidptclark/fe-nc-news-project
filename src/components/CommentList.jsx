@@ -16,5 +16,11 @@ export default function CommentsList({ article_id }) {
   }, [article_id]);
 
   if (isLoading) return <p>loading...</p>;
-  return <CommentListItem commentList={commentList} />;
+  return (
+    <Paper className="single-article-paper" elevation={24} square={false}>
+      {commentList.map((comment) => {
+        <CommentListItem comment={comment} />;
+      })}
+    </Paper>
+  );
 }
