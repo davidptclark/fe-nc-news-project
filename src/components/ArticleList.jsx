@@ -1,6 +1,7 @@
-import * as api from '../api';
+import * as api from '../utils/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 import ArticleCards from './ArticleCards';
 
 export default function ArticleList() {
@@ -16,7 +17,7 @@ export default function ArticleList() {
     });
   }, [topic]);
 
-  if (isLoading) return <p>loading...</p>;
+  if (isLoading) return <CircularProgress />;
   return (
     <main className="article-list">
       {articleList.map((article) => {

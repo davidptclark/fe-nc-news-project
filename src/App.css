@@ -29,6 +29,10 @@
   justify-items: space-around;
 }
 
+.comment-form {
+  margin-top: 1em;
+}
+
 .card-info {
   display: flex;
   justify-content: space-evenly;

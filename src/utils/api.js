@@ -29,3 +29,13 @@ export const getCommentsById = (article_id) => {
     .get(`/articles/${article_id}/comments`)
     .then(({ data }) => data);
 };
+
+export const postCommentsById = (article_id, postDetails) => {
+  return marketApi.post(`/articles/${article_id}/comments`, postDetails).then(
+    ({
+      data: {
+        comment: { comment_id },
+      },
+    }) => comment_id
+  );
+};
