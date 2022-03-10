@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Card from '@mui/material/Card';
 
 import Votes from './Votes';
-import CommentsList from './CommentsList';
+import CommentList from './CommentList';
 
 export default function SingleArticle() {
   const [article, setArticle] = useState('');
@@ -34,7 +34,7 @@ export default function SingleArticle() {
           <li>Topic: {article.topic}</li>
         </ul>
       </Card>
-      <CommentsList article_id={article_id} />
+      <CommentList article_id={article_id} />
     </section>
   );
 }
