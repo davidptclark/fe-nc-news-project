@@ -25,9 +25,10 @@ export const patchVotes = (article_id, voteChange) => {
 };
 
 export const getCommentsById = (article_id) => {
-  return marketApi
-    .get(`/articles/${article_id}/comments`)
-    .then(({ data }) => data);
+  return marketApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    const sortedComments = data.sort((a, b) => b.comment_id - a.comment_id); //Returns to CommentList in order which will render with new comments at the top
+    return sortedComments;
+  });
 };
 
 export const postCommentsById = (article_id, postDetails) => {
