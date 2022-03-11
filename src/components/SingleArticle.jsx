@@ -11,6 +11,7 @@ export default function SingleArticle() {
   const [article, setArticle] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [numOfComments, setNumOfComments] = useState(''); //Updated when POST request is successful and then triggers useEffect in CommentList
+  const [user, setUser] = useState({ username: 'grumpy19' });
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -39,8 +40,13 @@ export default function SingleArticle() {
       <CommentForm
         setNumOfComments={setNumOfComments}
         article_id={article_id}
+        user={user}
       />
-      <CommentList numOfComments={numOfComments} article_id={article_id} />
+      <CommentList
+        numOfComments={numOfComments}
+        article_id={article_id}
+        user={user}
+      />
     </section>
   );
 }

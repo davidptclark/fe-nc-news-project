@@ -15,9 +15,9 @@
 .article-cards,
 .single-article-paper {
   font-family: Quicksand;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-evenly; */
   margin-top: 1em;
   padding-left: 1em;
   padding-right: 1em;
@@ -53,6 +53,10 @@ li {
   flex: auto;
   list-style-type: none;
   justify-content: space-between;
+}
+
+.delete-prompt {
+  margin-top: 1em;
 }
 
 @media (max-width: 912px) {
