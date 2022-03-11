@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+.sort-selector {
+  margin-left: 1em;
+}
 
 .article-list {
   display: grid;
@@ -40,6 +43,10 @@
 
 .topic-links {
   padding-right: 3em;
+}
+
+.sort-order-links {
+  padding-top: 1em;
 }
 
 li {
