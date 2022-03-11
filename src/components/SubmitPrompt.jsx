@@ -1,11 +1,11 @@
 import Alert from '@mui/material/Alert';
 
-export default function Prompt({ postStatus, SetPostStatus }) {
+export default function SubmitPrompt({ postStatus, setPostStatus }) {
   if (postStatus === 'success') {
     return (
       <Alert
         onClose={() => {
-          SetPostStatus(null);
+          setPostStatus(null);
         }}
         severity="success"
       >
@@ -16,7 +16,7 @@ export default function Prompt({ postStatus, SetPostStatus }) {
     return (
       <Alert
         onClose={() => {
-          SetPostStatus(null);
+          setPostStatus(null);
         }}
         severity="error"
       >
@@ -27,7 +27,7 @@ export default function Prompt({ postStatus, SetPostStatus }) {
     return (
       <Alert
         onClose={() => {
-          SetPostStatus(null);
+          setPostStatus(null);
         }}
         severity="warning"
       >
