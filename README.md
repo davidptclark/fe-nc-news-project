@@ -1,4 +1,4 @@
-# 🗞️ My News Aggregator Website 🗞️
+# 🗞️ My News Aggregator App 🗞️
 
 Hello! 👋 Welcome to my news aggregator app - NC News.
 
