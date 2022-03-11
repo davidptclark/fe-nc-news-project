@@ -25,6 +25,7 @@ Making calls to the API, the app allows the user the following functionality:
 
 🚧 Before beginning setup, please check you have _at least_ these versions of the following:
 
+- `node` - v. 17.5.0
 - `react` - v. 17.0.2
 - `react-router-dom` - v. 6.2.2
 - `axios` - v. 0.26
