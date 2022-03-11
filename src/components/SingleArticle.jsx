@@ -30,8 +30,6 @@ export default function SingleArticle() {
       });
   }, [article_id]);
 
-  console.log(error ? true : false);
-
   if (isLoading) return <CircularProgress />;
   if (error) return <ErrorPage error={error} />;
   return (
