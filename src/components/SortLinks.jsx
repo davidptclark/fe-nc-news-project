@@ -1,4 +1,4 @@
-export default function SortLinks({ sortBy, setSortBy, setQueryParams }) {
+export default function SortLinks({ sortBy, setSortBy }) {
   const sortBys = [
     { name: 'Date', apiName: 'created_at' },
     { name: 'Comments', apiName: 'comment_count' },
@@ -7,7 +7,6 @@ export default function SortLinks({ sortBy, setSortBy, setQueryParams }) {
 
   const handleChange = (e) => {
     setSortBy(e.target.value);
-    setQueryParams({ sort_by: e.target.value });
   };
 
   return (
@@ -22,7 +21,7 @@ export default function SortLinks({ sortBy, setSortBy, setQueryParams }) {
       >
         {sortBys.map((sort, index) => {
           return (
-            <option key={index} value={sort.apiName}>
+            <option key={sort.name} value={sort.apiName}>
               {sort.name}
             </option>
           );

@@ -1,4 +1,4 @@
-export default function OrderLinks({ orderBy, setOrderBy, setQueryParams }) {
+export default function OrderLinks({ orderBy, setOrderBy }) {
   const orderBys = [
     { name: 'Descending', apiName: 'desc' },
     { name: 'Ascending', apiName: 'asc' },
@@ -6,7 +6,6 @@ export default function OrderLinks({ orderBy, setOrderBy, setQueryParams }) {
 
   const handleChange = (e) => {
     setOrderBy(e.target.value);
-    setQueryParams({ order: e.target.value });
   };
 
   return (
@@ -21,7 +20,7 @@ export default function OrderLinks({ orderBy, setOrderBy, setQueryParams }) {
       >
         {orderBys.map((order, index) => {
           return (
-            <option key={index} value={order.apiName}>
+            <option key={order.name} value={order.apiName}>
               {order.name}
             </option>
           );
