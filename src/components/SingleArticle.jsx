@@ -6,6 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Votes from './Votes';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
+import ErrorPage from './ErrorPage';
 
 export default function SingleArticle() {
   const [article, setArticle] = useState('');
@@ -13,16 +14,24 @@ export default function SingleArticle() {
   const [numOfComments, setNumOfComments] = useState(''); //Updated when POST request is successful and then triggers useEffect in CommentList
   const [user, setUser] = useState({ username: 'grumpy19' });
   const { article_id } = useParams();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    api.getArticleById(article_id).then(({ article }) => {
-      setArticle(article);
-      setIsLoading(false);
-    });
+    api
+      .getArticleById(article_id)
+      .then(({ article }) => {
+        setArticle(article);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err.response);
+      });
   }, [article_id]);
 
   if (isLoading) return <CircularProgress />;
+  if (error) return <ErrorPage error={error} />;
   return (
     <section>
       <Card className="single-article-paper" elevation={24} square={false}>

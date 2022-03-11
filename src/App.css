@@ -59,6 +59,10 @@ li {
   margin-top: 1em;
 }
 
+.page-not-found {
+  padding-top: 1em;
+}
+
 @media (max-width: 912px) {
   .article-list {
     display: grid;

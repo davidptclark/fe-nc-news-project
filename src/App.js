@@ -6,6 +6,7 @@ import Header from './components/Header';
 import TopicLinks from './components/TopicLinks';
 import ArticleList from './components/ArticleList';
 import SingleArticle from './components/SingleArticle';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Header />
           <TopicLinks />
           <Routes>
+            <Route path="*" element={<PageNotFound />} />
             <Route path="/" element={<ArticleList />} />
             <Route path="/topics/:topic" element={<ArticleList />} />
             <Route path="/articles/:article_id" element={<SingleArticle />} />
