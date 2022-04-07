@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CircularProgress from "@mui/material/CircularProgress";
+import * as moment from "moment";
 import ArticleVotes from "./ArticleVotes";
 import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
@@ -42,7 +43,7 @@ export default function SingleArticle() {
         <ArticleVotes votes={article.votes} />
         <ul className="card-info">
           <li>Comments: {article.comment_count} </li>
-          <li>Posted: {article.created_at} </li>
+          <li>Posted: {moment(article.created_at).format("Do MMMM YYYY")} </li>
           <li>Topic: {article.topic}</li>
         </ul>
       </Card>

@@ -1,5 +1,6 @@
 import * as api from "../utils/api";
 import { useState } from "react";
+import * as moment from "moment";
 import IconButton from "@mui/material/IconButton";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
@@ -23,7 +24,7 @@ export default function CommentVotes({ votes, comment_id, created_at }) {
     <section className="votes">
       <ul className="card-info">
         <li>Votes: {votes + sentVotes} </li>
-        <li>{created_at.slice(0, -14)} </li>
+        <li>{moment(created_at).format("Do MMMM YYYY")} </li>
       </ul>
       <IconButton
         disabled={sentVotes === 1 ? true : false}

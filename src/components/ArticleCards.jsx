@@ -1,5 +1,5 @@
 import Card from "@mui/material/Card";
-// import { makeStyles } from "@material-ui/core";
+import * as moment from "moment";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -41,7 +41,7 @@ export default function ArticleCards({
           <section className="votes">Votes: {votes}</section>
           <ul className="card-info">
             <li>Comments: {comment_count} </li>
-            <li>Posted: {created_at.slice(0, -14)} </li>
+            <li>Posted: {moment(created_at).format("Do MMMM YYYY")}</li>
             <li>Topic: {topic}</li>
           </ul>
         </Card>
