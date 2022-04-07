@@ -42,7 +42,7 @@ export default function SingleArticle() {
         <ArticleVotes votes={article.votes} />
         <ul className="card-info">
           <li>Comments: {article.comment_count} </li>
-          <li>Posted: {new Date(article.created_at).toUTCString()} </li>
+          <li>Posted: {article.created_at} </li>
           <li>Topic: {article.topic}</li>
         </ul>
       </Card>
