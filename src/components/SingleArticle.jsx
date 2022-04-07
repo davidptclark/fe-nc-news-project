@@ -1,18 +1,18 @@
-import * as api from '../utils/api';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Card from '@mui/material/Card';
-import CircularProgress from '@mui/material/CircularProgress';
-import Votes from './Votes';
-import CommentList from './CommentList';
-import CommentForm from './CommentForm';
-import ErrorPage from './ErrorPage';
+import * as api from "../utils/api";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Card from "@mui/material/Card";
+import CircularProgress from "@mui/material/CircularProgress";
+import ArticleVotes from "./ArticleVotes";
+import CommentList from "./CommentList";
+import CommentForm from "./CommentForm";
+import ErrorPage from "./ErrorPage";
 
 export default function SingleArticle() {
-  const [article, setArticle] = useState('');
+  const [article, setArticle] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [numOfComments, setNumOfComments] = useState(''); //Updated when POST request is successful and then triggers useEffect in CommentList
-  const [user, setUser] = useState({ username: 'grumpy19' });
+  const [numOfComments, setNumOfComments] = useState(""); //Updated when POST request is successful and then triggers useEffect in CommentList
+  const [user, setUser] = useState({ username: "grumpy19" });
   const { article_id } = useParams();
   const [error, setError] = useState(null);
 
@@ -39,7 +39,7 @@ export default function SingleArticle() {
         {/* Adding MUI Card styling */}
         <h4>By: {article.author} </h4>
         <p>{article.body}</p>
-        <Votes votes={article.votes} />
+        <ArticleVotes votes={article.votes} />
         <ul className="card-info">
           <li>Comments: {article.comment_count} </li>
           <li>Posted: {new Date(article.created_at).toUTCString()} </li>

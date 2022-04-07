@@ -1,22 +1,20 @@
-import * as api from '../utils/api';
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import IconButton from '@material-ui/core/IconButton';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import * as api from "../utils/api";
+import { useState } from "react";
+import IconButton from "@material-ui/core/IconButton";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 
-export default function Votes({ votes }) {
+export default function CommentVotes({ votes, comment_id }) {
   const [sentVotes, setSentVotes] = useState(0);
   const [err, setErr] = useState(null);
-  const { article_id } = useParams();
 
   const handleVoteClick = (voteChange) => {
     setSentVotes((currCount) => currCount + voteChange);
     /* To prevent multiple votes per user */
     setErr(null);
-    api.patchVotes(article_id, voteChange).catch((err) => {
+    api.patchVotesByCommentId(comment_id, voteChange).catch((err) => {
       setSentVotes((currCount) => currCount - voteChange);
-      setErr('Something went wrong, please vote again.');
+      setErr("Something went wrong, please vote again.");
     });
   };
 
@@ -29,14 +27,14 @@ export default function Votes({ votes }) {
         onClick={() => handleVoteClick(1)}
         color="primary"
       >
-        <ThumbUpIcon fontSize="large" />
+        <ThumbUpIcon />
       </IconButton>
       <IconButton
         disabled={sentVotes === -1 ? true : false}
         onClick={() => handleVoteClick(-1)}
         color="primary"
       >
-        <ThumbDownIcon fontSize="large" />
+        <ThumbDownIcon />
       </IconButton>
     </section>
   );
