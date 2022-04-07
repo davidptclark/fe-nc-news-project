@@ -2,7 +2,7 @@ import * as api from "../utils/api";
 import { useState } from "react";
 import Card from "@mui/material/Card";
 import DeleteIcon from "@mui/icons-material/Delete";
-import IconButton from "@material-ui/core/IconButton";
+import IconButton from "@mui/material/IconButton";
 import CommentVotes from "./CommentVotes";
 
 export default function CommentListItem({
@@ -30,10 +30,11 @@ export default function CommentListItem({
     <Card className="single-article-paper" elevation={8} square={false}>
       <h3>{author}</h3>
       <p>{body}</p>
-      <ul className="comment-details">
-        <li>{new Date(created_at).toUTCString()}</li>
-      </ul>
-      <CommentVotes votes={votes} comment_id={comment_id} />
+      <CommentVotes
+        votes={votes}
+        comment_id={comment_id}
+        created_at={created_at}
+      />
       {user.username === author ? (
         <IconButton
           onClick={() => handleDelete(comment_id)}

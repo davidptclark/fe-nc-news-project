@@ -1,7 +1,7 @@
 import * as api from "../utils/api";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
+import IconButton from "@mui/material/IconButton";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 

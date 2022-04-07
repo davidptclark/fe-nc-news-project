@@ -1,10 +1,10 @@
 import * as api from "../utils/api";
 import { useState } from "react";
-import IconButton from "@material-ui/core/IconButton";
+import IconButton from "@mui/material/IconButton";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 
-export default function CommentVotes({ votes, comment_id }) {
+export default function CommentVotes({ votes, comment_id, created_at }) {
   const [sentVotes, setSentVotes] = useState(0);
   const [err, setErr] = useState(null);
 
@@ -21,7 +21,10 @@ export default function CommentVotes({ votes, comment_id }) {
   if (err) return <p>{err}</p>;
   return (
     <section className="votes">
-      <p>Votes: {votes + sentVotes}</p>
+      <ul className="card-info">
+        <li>Votes: {votes + sentVotes} </li>
+        <li>{created_at.slice(0, -14)} </li>
+      </ul>
       <IconButton
         disabled={sentVotes === 1 ? true : false}
         onClick={() => handleVoteClick(1)}

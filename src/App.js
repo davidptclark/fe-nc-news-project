@@ -1,12 +1,22 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Container from '@mui/material/Container'; //Center root div horizontally
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Container from "@mui/material/Container"; //Center root div horizontally
 // Components
-import Header from './components/Header';
-import TopicLinks from './components/TopicLinks';
-import ArticleList from './components/ArticleList';
-import SingleArticle from './components/SingleArticle';
-import PageNotFound from './components/PageNotFound';
+import UserCard from "./components/UserCard";
+import Header from "./components/Header";
+import TopicLinks from "./components/TopicLinks";
+import ArticleList from "./components/ArticleList";
+import SingleArticle from "./components/SingleArticle";
+import PageNotFound from "./components/PageNotFound";
+
+//Overide MUI default, prevent reversion after refresh
+// const useStyles = makeStyles({
+//   myButton: {
+//     fontFamily: "Quicksand",
+//     padding: 10,
+//     color: "black",
+//   },
+// });
 
 function App() {
   return (
@@ -14,6 +24,7 @@ function App() {
       {/* IMPORTANT: This must be around the WHOLE div, otherwise the nav bar links will throw errors */}
       <div className="App">
         <Container maxWidth="md">
+          <UserCard />
           <Header />
           <TopicLinks />
           <Routes>

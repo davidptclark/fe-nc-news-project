@@ -1,17 +1,17 @@
-import * as api from '../utils/api';
-import { useState } from 'react';
+import * as api from "../utils/api";
+import { useState } from "react";
 
-import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
-import SendIcon from '@mui/icons-material/Send';
-import IconButton from '@material-ui/core/IconButton';
+import TextField from "@mui/material/TextField";
+import Paper from "@mui/material/Paper";
+import SendIcon from "@mui/icons-material/Send";
+import IconButton from "@mui/material/IconButton";
 
-import SubmitPrompt from './SubmitPrompt';
+import SubmitPrompt from "./SubmitPrompt";
 
 export default function CommentForm({ article_id, setNumOfComments, user }) {
   const [postDetails, setPostDetails] = useState({
     username: user.username,
-    body: '',
+    body: "",
   }); //Requires: {username: username, body: body} - needs to be someone who's already a use in DB otherwise 404
   const [isProcessing, setIsProcessing] = useState(false); //For button disabling during the POST request
   const [postStatus, setPostStatus] = useState(null); //To conditionally render the alert prompts based on comment input
@@ -27,25 +27,25 @@ export default function CommentForm({ article_id, setNumOfComments, user }) {
     event.preventDefault();
     //Prompt to prevent posting when no comment body is included
     if (postDetails.body.length === 0) {
-      setPostStatus('incomplete');
+      setPostStatus("incomplete");
     } else {
       api
         .postCommentsById(article_id, postDetails)
         .then((comment_id) => {
           setIsProcessing(true);
-          setPostStatus('success');
+          setPostStatus("success");
           setIsProcessing(false);
           setNumOfComments(comment_id); //Sets state that will the cause the useEffect in CommentList to re-render
         })
         .catch(() => {
           setIsProcessing(true);
-          setPostStatus('failure');
+          setPostStatus("failure");
           setIsProcessing(false);
         });
     }
     setPostDetails({
-      username: 'grumpy19',
-      body: '',
+      username: "grumpy19",
+      body: "",
     }); /* Clears comment field after submission */
   };
 

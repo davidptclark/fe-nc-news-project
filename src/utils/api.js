@@ -51,3 +51,7 @@ export const deleteCommentById = (comment_id) => {
     .delete(`/comments/${comment_id}`, comment_id)
     .then((res) => res);
 };
+
+export const getUserDetailsByUsername = (username) => {
+  return newsApi.get(`/users/${username}`).then((res) => res);
+};

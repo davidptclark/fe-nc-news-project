@@ -1,7 +1,12 @@
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
 export default function OrderLinks({ orderBy, setOrderBy }) {
   const orderBys = [
-    { name: 'Descending', apiName: 'desc' },
-    { name: 'Ascending', apiName: 'asc' },
+    { name: "Descending", apiName: "desc" },
+    { name: "Ascending", apiName: "asc" },
   ];
 
   const handleChange = (e) => {
@@ -9,23 +14,36 @@ export default function OrderLinks({ orderBy, setOrderBy }) {
   };
 
   return (
-    <div className="sort-order-links">
-      <label htmlFor="order-by">Order by:</label>
-      <select
-        className="sort-selector"
+    <FormControl sx={{ boxShadow: 3, m: 1, minWidth: 100 }}>
+      <InputLabel
+        sx={{
+          fontFamily: "Quicksand",
+        }}
+      >
+        Order by
+      </InputLabel>
+      <Select
+        sx={{
+          fontFamily: "Quicksand",
+        }}
+        value={orderBy}
+        label="Sort by"
         onChange={handleChange}
-        name="order-by"
-        id="order-by"
-        value={orderBy} //Keeps this as the selected choice after render
       >
         {orderBys.map((order, index) => {
           return (
-            <option key={order.name} value={order.apiName}>
+            <MenuItem
+              sx={{
+                fontFamily: "Quicksand",
+              }}
+              key={order.name}
+              value={order.apiName}
+            >
               {order.name}
-            </option>
+            </MenuItem>
           );
         })}
-      </select>
-    </div>
+      </Select>
+    </FormControl>
   );
 }
