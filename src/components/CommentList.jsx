@@ -1,10 +1,10 @@
-import * as React from 'react';
-import * as api from '../utils/api';
-import { useEffect, useState } from 'react';
-import Paper from '@mui/material/Paper';
-import CommentListItem from './CommentListItem';
-import CircularProgress from '@mui/material/CircularProgress';
-import DeletePrompt from './DeletePrompt';
+import * as React from "react";
+import * as api from "../utils/api";
+import { useEffect, useState } from "react";
+import Paper from "@mui/material/Paper";
+import CommentListItem from "./CommentListItem";
+import CircularProgress from "@mui/material/CircularProgress";
+import DeletePrompt from "./DeletePrompt";
 
 export default function CommentList({ article_id, numOfComments, user }) {
   const [commentList, setCommentList] = useState([]);

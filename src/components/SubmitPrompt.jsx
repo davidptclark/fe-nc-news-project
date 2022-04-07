@@ -1,7 +1,19 @@
-import Alert from '@mui/material/Alert';
+import Alert from "@mui/material/Alert";
+import { useEffect } from "react";
 
 export default function SubmitPrompt({ postStatus, setPostStatus }) {
-  if (postStatus === 'success') {
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      // After 1.5 seconds set the show value to false
+      setPostStatus(false);
+    }, 1500);
+
+    return () => {
+      clearTimeout(timeId);
+    };
+  });
+
+  if (postStatus === "success") {
     return (
       <Alert
         onClose={() => {
@@ -12,7 +24,7 @@ export default function SubmitPrompt({ postStatus, setPostStatus }) {
         Comment successfully posted!
       </Alert>
     );
-  } else if (postStatus === 'failure') {
+  } else if (postStatus === "failure") {
     return (
       <Alert
         onClose={() => {
@@ -23,7 +35,7 @@ export default function SubmitPrompt({ postStatus, setPostStatus }) {
         Something went wrong - please try again.
       </Alert>
     );
-  } else if (postStatus === 'incomplete') {
+  } else if (postStatus === "incomplete") {
     return (
       <Alert
         onClose={() => {
