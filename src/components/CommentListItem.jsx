@@ -1,8 +1,9 @@
-import * as api from '../utils/api';
-import { useState } from 'react';
-import Card from '@mui/material/Card';
-import DeleteIcon from '@mui/icons-material/Delete';
-import IconButton from '@material-ui/core/IconButton';
+import * as api from "../utils/api";
+import { useState } from "react";
+import Card from "@mui/material/Card";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@material-ui/core/IconButton";
+import CommentVotes from "./CommentVotes";
 
 export default function CommentListItem({
   comment: { comment_id, author, body, created_at, votes },
@@ -17,11 +18,11 @@ export default function CommentListItem({
       .deleteCommentById(comment_id)
       .then(() => {
         setIsProcessing(false);
-        setDeleteStatus('success');
+        setDeleteStatus("success");
       })
       .catch(() => {
         setIsProcessing(false);
-        setDeleteStatus('failure');
+        setDeleteStatus("failure");
       });
   };
 
@@ -31,8 +32,8 @@ export default function CommentListItem({
       <p>{body}</p>
       <ul className="comment-details">
         <li>{new Date(created_at).toUTCString()}</li>
-        <li>{`Votes: ${votes}`}</li>
       </ul>
+      <CommentVotes votes={votes} comment_id={comment_id} />
       {user.username === author ? (
         <IconButton
           onClick={() => handleDelete(comment_id)}
