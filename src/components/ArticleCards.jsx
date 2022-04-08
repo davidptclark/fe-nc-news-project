@@ -3,15 +3,6 @@ import * as moment from "moment";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
-//Overide MUI default, prevent reversion after refresh
-// const useStyles = makeStyles({
-//   myCard: {
-//     minWidth: 375,
-//     mixHeight: 200,
-//     margin: 10,
-//   },
-// });
-
 export default function ArticleCards({
   article: {
     article_id,
@@ -22,19 +13,12 @@ export default function ArticleCards({
     topic,
     votes,
     body,
-  }, //Destructure values from article object
+  },
 }) {
-  // const classes = useStyles();
-
   return (
     <Link to={`/articles/${article_id}`} style={{ textDecoration: "none" }}>
       <CardActionArea>
-        <Card
-          className="article-cards"
-          elevation={3}
-          // classes={{ root: classes.myCard }}
-        >
-          {/* Adding MUI card styling */}
+        <Card className="article-cards" elevation={3}>
           <h3>{title}</h3>
           <h4>{author}</h4>
           <p>{body.slice(0, 50)}...</p>

@@ -36,7 +36,6 @@ export default function CommentList({ article_id, numOfComments, user }) {
           setDeleteStatus={setDeleteStatus}
         />
       ) : null}
-      {/* Display prompt at the top of the comments list after re-render */}
       {commentList.map((comment) => {
         return (
           <CommentListItem

@@ -9,15 +9,6 @@ import ArticleList from "./components/ArticleList";
 import SingleArticle from "./components/SingleArticle";
 import PageNotFound from "./components/PageNotFound";
 
-//Overide MUI default, prevent reversion after refresh
-// const useStyles = makeStyles({
-//   myButton: {
-//     fontFamily: "Quicksand",
-//     padding: 10,
-//     color: "black",
-//   },
-// });
-
 function App() {
   return (
     <BrowserRouter>
