@@ -99,4 +99,30 @@ li {
     padding-right: 1em;
     font-size: 0.8em;
   }
+  .comment-list {
+    font-family: Quicksand;
+    font-size: 0.8em;
+  }
+
+  .single-article-paper {
+    font-family: Quicksand;
+    font-size: 0.9em;
+  }
+
+  /* .single-article {
+    font-family: Quicksand;
+    font-size: 0.9em;
+  } */
+  .card-info {
+    font-size: 0.8em;
+  }
+
+  .user-card {
+    font-size: 0.8em;
+  }
+
+  .user-avatar {
+    height: 45px;
+    width: 30px;
+  }
 }
