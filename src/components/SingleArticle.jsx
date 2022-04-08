@@ -37,7 +37,6 @@ export default function SingleArticle() {
     <section>
       <Card className="single-article-paper" elevation={24} square={false}>
         <h3>{article.title}</h3>
-        {/* Adding MUI Card styling */}
         <h4>By: {article.author} </h4>
         <p>{article.body}</p>
         <ArticleVotes votes={article.votes} />
