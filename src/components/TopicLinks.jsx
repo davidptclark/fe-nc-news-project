@@ -2,18 +2,22 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import * as api from "../utils/api";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function TopicLinks() {
   const [topics, setTopics] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("All");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    api
-      .getTopics()
-      .then(({ topics }) =>
-        setTopics(topics)
-      ); /* Axios will automatically parse URL for parameter needed for GET request, now that links reflect topic requested by user */
+    setIsLoading(true);
+    api.getTopics().then(({ topics }) => {
+      setTopics(topics);
+      setIsLoading(false);
+    }); /* Axios will automatically parse URL for parameter needed for GET request, now that links reflect topic requested by user */
   }, []);
+
+  if (isLoading) return <CircularProgress />;
   return (
     <nav>
       <Button
